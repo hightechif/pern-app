@@ -1,7 +1,11 @@
 {
   "name": "pern-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "PERN App Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ridhanf/pern-app.git"
+  },
   "main": "app.js",
   "scripts": {
     "dev": "cd backend && nodemon ./bin/www",
@@ -9,7 +13,12 @@
     "start": "concurrently \"npm run dev\" \"npm run client\"",
     "test": "cd backend && jest"
   },
-  "keywords": [],
+  "keywords": [
+    "pern",
+    "express",
+    "node",
+    "react"
+  ],
   "author": "ridhanf",
   "license": "MIT",
   "dependencies": {
