@@ -18,6 +18,9 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Project dependencie
 
 ```
 $ npm install
+$ cd frontend
+$ npm install
+$ cd ..
 ```
 
 **3. Run sequelize**
@@ -41,12 +44,6 @@ Run server with:
 
 ```
 $ npm run start
-```
-
-or
-
-```
-$ npm run dev
 ```
 
 &nbsp;
