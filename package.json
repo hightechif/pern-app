@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "cd backend && nodemon ./bin/www",
     "client": "cd frontend && npm start",
-    "start": "concurrently \"npm run dev\" \"npm run client\"",
-    "test": "cd backend && jest"
+    "start": "concurrently \"npm run dev\" \"npm run client\""
   },
   "keywords": [
     "pern",
@@ -26,9 +25,7 @@
     "concurrently": "^6.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "eslint": "^7.27.0",
     "express": "~4.16.1",
-    "jest": "^27.0.3",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7",
@@ -37,7 +34,6 @@
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.6.2",
-    "supertest": "^6.1.3",
     "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2"
   }
