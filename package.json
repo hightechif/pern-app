@@ -9,7 +9,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "cd backend && nodemon ./bin/www",
-    "client": "cd frontend && npm start",
+    "client": "cd frontend && npm install && npm start",
     "start": "concurrently \"npm run dev\" \"npm run client\""
   },
   "keywords": [
