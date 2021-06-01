@@ -2,7 +2,4 @@ build:
   web: npm run heroku-postbuild 
 run:
   web: npm run client
-  worker:
-    command:
-      - npm run dev
-    image: web
+  worker: npm run dev
