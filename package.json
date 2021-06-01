@@ -9,8 +9,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "cd backend && nodemon ./bin/www",
-    "client": "cd frontend && npm install && npm start",
-    "start": "concurrently \"npm run dev\" \"npm run client\""
+    "client": "cd frontend && npm start",
+    "start": "concurrently \"npm run dev\" \"npm run client\"",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "keywords": [
     "pern",
@@ -36,6 +37,5 @@
     "sequelize": "^6.6.2",
     "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2"
-  },
-  "heroku-postbuild": "cd frontend && npm install && npm run build"
+  }
 }
