@@ -1,14 +1,23 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// Import Module
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const path = require('path');
 
-var indexRouter = require('./backend/routes/index');
-// var usersRouter = require('./backend/routes/users');
-var apiRouter = require('./backend/routes/api.routes')
+// Import Router
+const indexRouter = require('./backend/routes/index');
+// const usersRouter = require('./backend/routes/users');
+const apiRouter = require('./backend/routes/api.routes')
 
-var app = express();
+// Import Middleware
+const errorMiddleware = require('./utils/error.middleware')
 
+// Activate Express Module
+const app = express();
+
+// Muddlewares
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,5 +28,10 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/api', apiRouter)
+
+// Error Handlers
+// Error Handlers
+app.use(errorMiddleware.errorHandler); // Internal Server Error Handler
+app.use(errorMiddleware.error404Handler); // Error 404 Handler
 
 module.exports = app;
