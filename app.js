@@ -16,7 +16,7 @@ const errorMiddleware = require('./utils/error.middleware')
 // Activate Express Module
 const app = express();
 
-// Muddlewares
+// Middlewares
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
