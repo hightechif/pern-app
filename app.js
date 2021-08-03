@@ -6,15 +6,19 @@ const cors = require('cors');
 const path = require('path');
 
 // Import Router
-const indexRouter = require('./backend/routes/index');
-// const usersRouter = require('./backend/routes/users');
-const apiRouter = require('./backend/routes/api.routes')
+const indexRouter = require('./server/routes/index');
+const apiRouter = require('./server/routes/api.routes')
+const usersRouter = require('./server/routes/users');
 
 // Import Middleware
-const errorMiddleware = require('./utils/error.middleware')
+const errorMiddleware = require('./server/utils/error.middleware')
 
 // Activate Express Module
 const app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Middlewares
 app.use(cors())
@@ -22,16 +26,16 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Routing
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-app.use('/api', apiRouter)
+app.use('/api/v1', apiRouter)
+app.use('/users', usersRouter);
 
-// Error Handlers
-// Error Handlers
-app.use(errorMiddleware.errorHandler); // Internal Server Error Handler
-app.use(errorMiddleware.error404Handler); // Error 404 Handler
+// catch 404 and forward to error handler
+app.use(errorMiddleware.notFoundHandler);
+// error handler
+app.use(errorMiddleware.errorHandler);
 
 module.exports = app;
